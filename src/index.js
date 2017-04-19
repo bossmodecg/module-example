@@ -12,10 +12,21 @@ export default class ExampleModule extends BossmodeCG.BModule {
     super("example", _.merge({}, DEFAULT_CONFIG, config));
   }
 
-  async _doRegister() {
+  async _doRegister(server, http) {
     this.server.on('beforeRun', () => {
       this.logger.debug("beforeRun hit.");
     });
+
+    this.on('reset', () => {
+      this.logger.info("Restting via socket.io event.");
+      this.setState({ count: 0 });
+    });
+
+    http.post("/reset", () => {
+      this.logger.info("Resetting via synchronous command.");
+      this.setState({ count: 0 });
+    });
+
 
     this.logger.info(`Setting up example counter every ${this.config.countInterval}ms.`);
     setInterval(() => {
