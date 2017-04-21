@@ -1,24 +1,20 @@
 {
   "name": "@bossmodecg/module-example",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A simple BossmodeCG module that increments a counter and fires an event.",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bossmodecg/module-example/issues"
   },
   "repository": "github:bossmodecg/module-example",
+  "main": "dist",
   "files": [
     "dist"
   ],
-  "bossmodecg": {
-    "modulePath": "dist/index"
-  },
   "dependencies": {
+    "@bossmodecg/module": "^0.2.0",
     "babel-runtime": "^6.23.0",
     "lodash": "^4.17.4"
-  },
-  "peerDependencies": {
-    "@bossmodecg/core": "^0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
